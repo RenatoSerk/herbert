@@ -64,9 +64,10 @@ function App() {
             setMainState({...mainState, fetchingData: false, promptVal: resultString});
           }
           else{
-            console.log(result);
-            console.log(result.choices[0].text + "...");
-            setMainState({...mainState, fetchingData: false, promptVal: ""});
+            let newPromptArray = [...mainState.promptResponseObjects];
+            newPromptArray.push({prompt: mainState.promptVal, response: formatResultString(resultString)});
+            setMainState({...mainState, fetchingData: false, promptVal: "", promptResponseObjects: newPromptArray});
+            window.scrollTo(0, document.body.scrollHeight);
           }
         }
         else{
