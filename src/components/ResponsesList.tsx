@@ -14,6 +14,16 @@ export function ResponseList(props: ResponsesListProps){
         // with the highest key when a new one is added to a list
         let idCounter = data.length;
         return data.map((dataObj) => {
+            if (idCounter === data.length){
+                // Make first item take up a whole row
+                idCounter--;
+                return(
+                    <li className='ResponseList-item_first' key={idCounter}>
+                        <p><b>Prompt:</b> {dataObj.prompt}</p>
+                        <p><b>Response:</b> {dataObj.response}</p>
+                    </li>
+                );
+            }
             idCounter --;
             return(
                 <li className='ResponseList-item' key={idCounter}>

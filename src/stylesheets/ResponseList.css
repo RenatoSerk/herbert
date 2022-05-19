@@ -36,9 +36,26 @@
 .ResponseList-list {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: space-around;
     padding: 0;
     margin: 0;
+}
+
+.ResponseList-item_first {
+  margin: 20px;
+  height: 150px;
+  width: 100%;
+  border-radius: 10px;
+  border-color: black;
+  border-width: 5px;
+  padding: 10px;
+  background-color: white;
+  list-style-type: none;
+  border-style: double;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow-y: auto;
+  animation: itemFadeIn 1s ease 0s 1 normal forwards;
 }
 
 .ResponseList-item {
@@ -54,7 +71,6 @@
     border-style: double;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     overflow-y: auto;
-    animation: itemFadeIn 1s ease 0s 1 normal forwards;
 }
 
 @keyframes itemFadeIn {
