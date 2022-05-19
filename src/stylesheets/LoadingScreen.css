@@ -1,0 +1,42 @@
+.LoadingScreen-img {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    z-index: 100;
+    animation: appLogoSpin infinite 3s linear, 
+        fadeIn 1s ease 0s 1 normal forwards;
+    max-width: calc(100px + 15vw);
+}
+
+@keyframes appLogoSpin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}

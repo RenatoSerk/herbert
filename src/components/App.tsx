@@ -1,6 +1,7 @@
 import React from 'react';
 import '../stylesheets/App.css';
 import { Header } from './Header';
+import { LoadingScreen } from './LoadingScreen';
 import { PromptInput } from './PromptInput';
 import { ResponseList } from './ResponsesList';
 import { SplashScreen } from './SplashScreen';
@@ -17,7 +18,7 @@ interface APIResult{
   created: Date;
 }
 
-const SECRET_TOKEN = process.env.REACT_APP_OPEN_AI_TOKEN;
+const SECRET_TOKEN = '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';
 
 function App() {
   const initialMainState: MainState = {
@@ -72,10 +73,12 @@ function App() {
         }
         else{
           console.log(result);
+          setMainState({...mainState, fetchingData: false});
         }
       });
     }).catch((e) => {
       console.log(e);
+      setMainState({...mainState, fetchingData: false});
     });
   }
 
@@ -105,6 +108,9 @@ function App() {
   return (
     <div className="App">
       <SplashScreen/>
+      <LoadingScreen 
+        loading={mainState.fetchingData}
+      />
       <Header/>
       <PromptInput
           value={mainState.promptVal}
