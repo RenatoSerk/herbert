@@ -51,7 +51,7 @@ function App() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ` + SECRET_TOKEN,
+        Authorization: "Bearer " + process.env.REACT_APP_OPEN_AI_TOKEN
       },
       body: jsonData
     }).then( (res) => {
@@ -66,9 +66,8 @@ function App() {
           }
           else{
             let newPromptArray = [...mainState.promptResponseObjects];
-            newPromptArray.push({prompt: mainState.promptVal, response: formatResultString(resultString)});
+            newPromptArray.unshift({prompt: mainState.promptVal, response: formatResultString(resultString)});
             setMainState({...mainState, fetchingData: false, promptVal: "", promptResponseObjects: newPromptArray});
-            window.scrollTo(0, document.body.scrollHeight);
           }
         }
         else{
