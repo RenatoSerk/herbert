@@ -8,9 +8,13 @@ interface ResponsesListProps{
 export function ResponseList(props: ResponsesListProps){
 
     const dataToElements = (data: {prompt: string, response: string}[]) => {
-        let idCounter = -1;
+        // Starting with a high key and subtracting fixes the problem of the last element
+        // animating in a list instead of the new one when you add the new one to the front
+        // It is interesting that React will apply CSS animations to the element
+        // with the highest key when a new one is added to a list
+        let idCounter = data.length;
         return data.map((dataObj) => {
-            idCounter ++;
+            idCounter --;
             return(
                 <li className='ResponseList-item' key={idCounter}>
                     <p><b>Prompt:</b> {dataObj.prompt}</p>
