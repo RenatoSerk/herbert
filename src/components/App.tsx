@@ -18,7 +18,7 @@ interface APIResult{
   created: Date;
 }
 
-const SECRET_TOKEN = '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';
+const SECRET_TOKEN = process.env.REACT_APP_OPEN_AI_TOKEN;
 
 function App() {
   const initialMainState: MainState = {
