@@ -7,7 +7,7 @@ interface SplashScreenState{
 }
 
 // This should match up with the CSS value
-const SPLASH_SHOW_TIME_MS = 6500;
+const SPLASH_SHOW_TIME_MS = 5300;
 
 export function SplashScreen(){
 
